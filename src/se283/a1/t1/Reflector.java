@@ -9,7 +9,7 @@ package se283.a1.t1;
  * All changes required for Task 1 must be performed on a new branch named "T1Branch". 
  * You can create this new branch from our IDE.
  * 
- * @author Author Name: [YOUR NAME] Author UPI: [YOUR UPI]
+ * @author Author Name: Alex Author UPI: zlia715
  * @version Date: [CURRENT DATE] 
  */
 

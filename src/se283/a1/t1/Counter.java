@@ -7,17 +7,17 @@ public class Counter {
 
 	//method increments _ctr	
 	public void increment() { 
-		_ctr--; //faulty increment		
+		_ctr++; //faulty increment
 	}
 	
 	//method decrements _ctr
 	public void decrement() { 
-		_ctr++; //faulty decrement
+		_ctr--; //faulty decrement
 	}
 	
 	//method resets _ctr
 	public void reset() { 
-		_ctr = 1; //faulty reset, _ctr should rather be 0 
+		_ctr = 0; //faulty reset, _ctr should rather be 0
 	}
 	
 	//method multiplies _ctr by n
