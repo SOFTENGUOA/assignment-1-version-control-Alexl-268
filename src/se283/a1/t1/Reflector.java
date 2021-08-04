@@ -19,44 +19,52 @@ import java.lang.reflect.Method;
 import java.util.Scanner;
 
 public class Reflector {
-	public static void main (String[] args) {
 		Class cls;
 		Scanner scan = new Scanner(System.in);
 
-		while (true) {
-			try{
-				String name = scan.next();
-				cls = Class.forName("se283.a1.t1."+name);
-				break;
-			} catch (ClassNotFoundException e) {
-				System.err.println("Class not found!");
+		public Reflector() {
+			while (true) {
+				try {
+					String name = scan.next();
+					cls = Class.forName("se283.a1.t1." + name);
+					break;
+				} catch (ClassNotFoundException e) {
+					System.err.println("Class not found!");
+				}
 			}
 		}
 
-		Method[] classMethods = cls.getMethods();
-		Field[] classFields = cls.getDeclaredFields();
-		System.out.println("Fields: ");
-		for (Field field : classFields){
-			System.out.println(field.getName() + "    \tType: " + field.getType());
-		}
-		System.out.println("\n\n\n");
-
-
-		for (Method method : classMethods){
-			System.out.println("Method Name:\t" + method.getName());
-			if(method.getName().startsWith("get")){
-				System.out.println("Getter");
-			}else if(method.getName().startsWith("set")){
-				System.out.println("Setter");
-			}
-			System.out.println("Return Type:\t" + method.getReturnType());
-			Class[] params = method.getParameterTypes();
-			System.out.print("Parameters:\t\t");
-			for (Class param : params){
-				System.out.print(param.getName() + ", ");
+		public Method[] getFieldsMethods() {
+			Method[] classMethods = cls.getMethods();
+			Field[] classFields = cls.getDeclaredFields();
+			System.out.println("Fields: ");
+			for (Field field : classFields) {
+				System.out.println(field.getName() + "    \tType: " + field.getType());
 			}
 			System.out.println("\n");
-		}
-	}
+			System.out.println("Methods:");
 
+			for (Method method : classMethods) {
+				if (method.getParameterCount() == 0) {
+					System.out.println("Method Name:\t" + method.getName());
+				}
+			}
+
+			return classMethods;
+		}
+
+//		Constructor constructor = null;
+//		Object constructor2 = null;
+//		constructor = cls.getConstructor((Class<?>) constructor2);
+//
+//
+//		while (true) {
+//			try{
+//				String name = scan.next();
+//				cls = Class.forName("se283.a1.t1."+name);
+//				break;
+//			} catch (ClassNotFoundException e) {
+//				System.err.println("Class not found!");
+//			}
+//		}
 }

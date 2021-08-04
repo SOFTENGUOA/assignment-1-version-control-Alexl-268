@@ -1,5 +1,8 @@
 package se283.a1.t1;
 
+import java.lang.reflect.Method;
+import java.sql.Ref;
+
 /**
  * SE283 Assignment 1 Task 1 Main - Instructions 
  * 
@@ -23,6 +26,10 @@ public class T1Main {
 	public static void main(String[] args) {
 
 		// TODO Assignment 1, Question 1-2.	
+
+		Reflector reflector = new Reflector();
+		Method[] methods = reflector.getFieldsMethods();
+
 
 	}
 }
