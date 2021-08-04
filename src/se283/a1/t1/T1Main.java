@@ -29,7 +29,7 @@ public class T1Main {
 
 		Reflector reflector = new Reflector();
 		Method[] methods = reflector.getFieldsMethods();
-
+		reflector.callMethod("increment");
 
 	}
 }
