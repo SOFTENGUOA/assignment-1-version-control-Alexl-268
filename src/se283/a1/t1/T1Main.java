@@ -1,7 +1,9 @@
 package se283.a1.t1;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.Ref;
+import java.util.Scanner;
 
 /**
  * SE283 Assignment 1 Task 1 Main - Instructions 
@@ -23,13 +25,22 @@ import java.sql.Ref;
  */
 
 public class T1Main {
-	public static void main(String[] args) {
+	private static Scanner scan = new Scanner(System.in);
 
-		// TODO Assignment 1, Question 1-2.	
+	public static void main(String[] args) throws IllegalAccessException, InvocationTargetException {
+
+		// TODO Assignment 1, Question 1-2.
 
 		Reflector reflector = new Reflector();
-		Method[] methods = reflector.getFieldsMethods();
-		reflector.callMethod("increment");
+		reflector.getFieldsMethods();
+		System.out.print("Methods to call (q to quit): ");
+		String input = scan.next();
 
+		while (!input.equalsIgnoreCase("q")){		//while the user does not input q, loop the method calls.
+			reflector.callMethod(input);
+			reflector.getFieldsMethods();
+			System.out.print("Methods to call (q to quit): ");
+			input = scan.next();
+		}
 	}
 }

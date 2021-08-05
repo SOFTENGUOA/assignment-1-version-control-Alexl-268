@@ -9,12 +9,13 @@ package se283.a1.t1;
  * All changes required for Task 1 must be performed on a new branch named "T1Branch". 
  * You can create this new branch from our IDE.
  * 
- * @author Author Name: [YOUR NAME] Author UPI: [YOUR UPI]
- * @version Date: [CURRENT DATE] 
+ * @author Author Name: Alex Liang Author UPI: zlia715
+ * @version Date: 6/8/2021
  */
 import java.io.ObjectStreamException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Scanner;
 
@@ -23,55 +24,48 @@ public class Reflector {
 		private Scanner scan = new Scanner(System.in);
 		private Method[] classMethods;
 		private Field[] classFields;
+		private Object classObj;
 
 		public Reflector() {
 			while (true) {
 				try {
+					System.out.print("Class : ");
 					String name = scan.next();
-					this.cls = Class.forName("se283.a1.t1." + name);
+					this.cls = Class.forName("se283.a1.t1." + name);					//initilising the class
+					this.classObj = cls.getDeclaredConstructor().newInstance();			//creating new object
+					this.classMethods = cls.getDeclaredMethods();				//Store all the fields and methods
+					this.classFields = cls.getDeclaredFields();
 					break;
-				} catch (ClassNotFoundException e) {
+				} catch (ClassNotFoundException | NoSuchMethodException e) {
 					System.err.println("Class not found!");
+				} catch (InvocationTargetException | InstantiationException | IllegalAccessException e) {
+					e.printStackTrace();
 				}
 			}
 		}
 
-		public Method[] getFieldsMethods() {
-			this.classMethods = cls.getDeclaredMethods();
-			this.classFields = cls.getDeclaredFields();
-			System.out.println("Fields: ");
-			for (Field field : classFields) {
-				System.out.println(field.getName() + "    \tType: " + field.getType());
-			}
-
-			System.out.println("\nMethods:");
-			for (Method method : classMethods) {
+		public void getFieldsMethods() throws IllegalAccessException {
+			System.out.println("--------------------------------------------------------------------");
+			System.out.println("Methods:");
+			for (Method method : classMethods) {								//print out all the methods
 				if (method.getParameterCount() == 0) {
 					System.out.println("Method Name:\t" + method.getName());
 				}
 			}
-			return classMethods;
+
+			System.out.println("");
+			System.out.println("Fields: ");										//print out all the Fields
+			for (Field field : classFields) {
+				System.out.println(field.getName() + "    \tValue: " + field.get(classObj));
+			}
+			System.out.println("");
 		}
 
-		public void callMethod(String askmethod){
-			for (Method method : classMethods){
-				if (method.getName()  == askmethod){
-					Object asdlkfj = cls.newInstance();
+		public void callMethod(String askmethod) throws InvocationTargetException, IllegalAccessException {
+			for (Method method : classMethods){								//call the method if the ask method is the same as one of the method names
+				if (method.getName().equalsIgnoreCase(askmethod)){
+					method.invoke(classObj);
 				}
 			}
 		}
-//		Constructor constructor = null;
-//		Object constructor2 = null;
-//		constructor = cls.getConstructor((Class<?>) constructor2);
-//
-//
-//		while (true) {
-//			try{
-//				String name = scan.next();
-//				cls = Class.forName("se283.a1.t1."+name);
-//				break;
-//			} catch (ClassNotFoundException e) {
-//				System.err.println("Class not found!");
-//			}
-//		}
 }
