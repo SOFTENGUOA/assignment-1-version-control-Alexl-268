@@ -61,7 +61,9 @@ class CounterTest {
 		Counter counter = new Counter();
 		int before = counter._ctr;
 		counter.multiplyBy(2);
+		int multiplication = counter._multiplier;
 		assertEquals(counter._ctr,before*2);
+		assertEquals(2,multiplication);
 	}
 
 
