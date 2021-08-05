@@ -15,6 +15,10 @@ package se283.a1.t3;
 
 public class Floor {
 
+	public int area(){
+		return length()*width();
+	}
+
 	public int length() {
 		// length of the floor
 		return 21;
