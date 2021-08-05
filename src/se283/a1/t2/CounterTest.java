@@ -10,8 +10,8 @@ import se283.a1.t1.Counter;
 
 /**
  * Test class for Counter class
- * @author [YourName]
- * @version [Current Date]
+ * @author [Alex Liang]
+ * @version [5/8/2021]
  *
  */
 class CounterTest {
@@ -21,7 +21,7 @@ class CounterTest {
 	 */
 	@Test
 	void testIncrement() {
-		//fail("Not yet implemented");
+		//Failed because increment is _ctr-- when it should be _ctr++
 		Counter counter = new Counter();
 		int before = counter._ctr ;
 		counter.increment();
@@ -33,7 +33,7 @@ class CounterTest {
 	 */
 	@Test
 	void testDecrement() {
-//		fail("Not yet implemented");
+		//Failed because decrement is _ctr++ when it should be _ctr--
 		Counter counter = new Counter();
 		int before = counter._ctr;
 		counter.decrement();
@@ -46,7 +46,7 @@ class CounterTest {
 	 */
 	@Test
 	void testReset() {
-//		fail("Not yet implemented");
+		//Failed because reset should reset _ctr to 0
 		Counter counter = new Counter();
 		counter.reset();
 		assertEquals(counter._ctr, 0);
@@ -57,7 +57,7 @@ class CounterTest {
 	 */
 	@Test
 	void testMultiplyBy() {
-//		fail("Not yet implemented");
+		//Accepted
 		Counter counter = new Counter();
 		int before = counter._ctr;
 		counter.multiplyBy(2);
