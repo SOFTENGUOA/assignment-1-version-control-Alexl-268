@@ -3,8 +3,8 @@ package se283.a1.t3;
 /**
  * [ADD COMMENTS] Describe the class
  * 
- * @author Author Name: [YOUR NAME] Author UPI: [YOUR UPI]
- * @version Date: [CURRENT DATE] 
+ * @author Author Name: [Alex Liang] Author UPI: [zlia715]
+ * @version Date: [6/8/2021]
  *
  * Changed Performed: 
  * [Explain the changes made and their rationale. 

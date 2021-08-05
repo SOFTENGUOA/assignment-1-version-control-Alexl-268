@@ -3,11 +3,10 @@ package se283.a1.t3;
 /**
  * [ADD COMMENTS] Describe the class
  * 
- * @author Author Name: [YOUR NAME] Author UPI: [YOUR UPI]
- * @version Date: [CURRENT DATE] 
+ * @author Author Name: [Alex Liang] Author UPI: [zlia715]
+ * @version Date: [6/8/2021]
  *
- * [Explain the changes made and their rationale. 
- * This description may overlap with the contents of commit messages]
+ * 1) added a new method area which calculated the area of the floor in the floor class
  * 
  * Note: You may create new classes, methods or fields in this package
  *
