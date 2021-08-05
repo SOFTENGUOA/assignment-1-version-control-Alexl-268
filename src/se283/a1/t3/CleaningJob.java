@@ -19,7 +19,7 @@ public class CleaningJob {
     // calculates the energy consumption cost for cleaning the floor area
 	double cleaningRent(Floor floor, CleaningMachine cleaner) {
 		
-		double floorArea = floor.area();
+		double floorArea = floor.length() * floor.width();
 		double electricityPerUnitArea = floor.getCondition() * cleaner.getCapability();
 		double energyConsumption = electricityPerUnitArea * floorArea;
 		
