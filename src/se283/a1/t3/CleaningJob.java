@@ -13,8 +13,6 @@ package se283.a1.t3;
  */
 
 public class CleaningJob {
-	// The method inputs the floor and cleaner objects and
-    // calculates the energy consumption cost for cleaning the floor area
 	double cleaningRent(Floor floor, MachinesForJob cleaner) {
 
 		double floorArea = floor.area();
