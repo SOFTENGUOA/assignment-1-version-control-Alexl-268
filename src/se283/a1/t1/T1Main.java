@@ -27,20 +27,32 @@ import java.util.Scanner;
 public class T1Main {
 	private static Scanner scan = new Scanner(System.in);
 
-	public static void main(String[] args) throws IllegalAccessException, InvocationTargetException {
+	public static void main(String[] args){
 
 		// TODO Assignment 1, Question 1-2.
 
-		Reflector reflector = new Reflector();
-		reflector.getFieldsMethods();
-		System.out.print("Methods to call (q to quit): ");
-		String input = scan.next();
+		System.out.print("Class : ");
+		String name = scan.next();
+		Reflector reflector;
 
-		while (!input.equalsIgnoreCase("q")){		//while the user does not input q, loop the method calls.
-			reflector.callMethod(input);
+		try {
+			reflector = new Reflector(name);						//srrounding the functionalities in a try statement and catch exeptions
 			reflector.getFieldsMethods();
+
 			System.out.print("Methods to call (q to quit): ");
-			input = scan.next();
+			String input = scan.next();								//scan user method input
+
+			while (!input.equalsIgnoreCase("q")){		//while the user does not input q, loop the method calls.
+				reflector.callMethod(input);
+				reflector.getFieldsMethods();
+				System.out.print("Methods to call (q to quit): ");
+				input = scan.next();
+			}
+
+		} catch (ClassNotFoundException | NoSuchMethodException | InstantiationException e) {
+			System.err.println("Invalid Class");							//catching invalid class exeption
+		} catch (IllegalAccessException | InvocationTargetException e) {
+			System.err.println("Invalid Method");
 		}
 	}
 }
