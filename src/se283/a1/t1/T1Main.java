@@ -52,7 +52,7 @@ public class T1Main {
 		} catch (ClassNotFoundException | NoSuchMethodException | InstantiationException e) {
 			System.err.println("Invalid Class");							//catching invalid class exeption
 		} catch (IllegalAccessException | InvocationTargetException e) {
-			System.err.println("Invalid Method");
+			System.err.println("Invalid Method");							//catching invalid method exeption
 		}
 	}
 }
