@@ -60,9 +60,12 @@ class CounterTest {
 		//Accepted
 		Counter counter = new Counter();
 		int before = counter._ctr;
+
 		counter.multiplyBy(2);
-		int multiplication = counter._multiplier;
+		int multiplication = counter._multiplier;			//store the _multiplier variable to check that multiplier is correctly set
 		assertEquals(counter._ctr,before*2);
+
+		//Tests to make sure _multipier is correctly set to 2
 		assertEquals(2,multiplication);
 	}
 
