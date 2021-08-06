@@ -1,23 +1,23 @@
 package se283.a1.t3;
 
 /**
- * [ADD COMMENTS] Describe the class
- * 
- * @author Author Name: [YOUR NAME] Author UPI: [YOUR UPI]
- * @version Date: [CURRENT DATE] 
- * 
- * [Explain the changes made and their rationale. 
- * This description may overlap with the contents of commit messages]
- * 
- * Note: You may create new classes, methods or fields in this package
+ * [PolishingJob Calculates the polishing expenses needed for each job] Describe the class
  *
+ * @author Author Name: [Alex Liang] Author UPI: [zlia715]
+ * @version Date: [6/8/2021]
+ *
+ * 1) added a new method area which calculated the area of the floor in the floor class
+ * 2) Made a MachineForJob parent class that includes all the funcitonalities of cleaning machines and polishing machines
+ *
+ * Note: You may create new classes, methods or fields in this package
  */
 
 public class PolishingJob{
-	double polishingRent(Floor floor, PolishingMachine polisher) {
-		double floorArea = floor.length() * floor.width();
+	double polishingRent(Floor floor, MachinesForJob polisher) {
+		double floorArea = floor.area();
 		double electricityPerUnitArea = floor.getCondition() * polisher.getCapability();
 		double energyConsumption = electricityPerUnitArea * floorArea;
-		return energyConsumption * polisher.costPerUnitElectricity();
+
+		return energyConsumption * polisher.getElectricity();
 	}
 }

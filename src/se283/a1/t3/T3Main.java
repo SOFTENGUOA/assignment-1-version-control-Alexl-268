@@ -6,7 +6,7 @@ package se283.a1.t3;
  * The refactorings performed must not change the output of the main method. 
  * This can happen due to incorrect refactorings.
  * 
- * @author Author Name: [YOUR NAME] Author UPI: [YOUR UPI]
+ * @author Author Name: [Alex Liang] Author UPI: [zlia715]
  * @version Date: [CURRENT DATE] 
  * 
  * You MUST NOT change this code.
