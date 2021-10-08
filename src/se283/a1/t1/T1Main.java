@@ -1,5 +1,10 @@
 package se283.a1.t1;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.sql.Ref;
+import java.util.Scanner;
+
 /**
  * SE283 Assignment 1 Task 1 Main - Instructions 
  * 
@@ -15,14 +20,39 @@ package se283.a1.t1;
  * You may COMMIT and PUSH prematurely too i.e. before each task is completed, but 
  * you "must" COMMIT and PUSH to the remote repo after finishing each of the A1 tasks.
  * 
- * @author Author Name: [YOUR NAME] Author UPI: [YOUR UPI]
- * @version Date: [CURRENT DATE] 
+ * @author Author Name: Alex Liang Author UPI: [zlia715]
+ * @version Date: [6/8/2021]
  */
 
 public class T1Main {
-	public static void main(String[] args) {
+	private static Scanner scan = new Scanner(System.in);
 
-		// TODO Assignment 1, Question 1-2.	
+	public static void main(String[] args){
 
+		// TODO Assignment 1, Question 1-2.
+
+		System.out.print("Class : ");
+		String name = scan.next();
+		Reflector reflector;
+
+		try {
+			reflector = new Reflector(name);						//srrounding the functionalities in a try statement and catch exeptions
+			reflector.getFieldsMethods();
+
+			System.out.print("Methods to call (q to quit): ");
+			String input = scan.next();								//scan user method input
+
+			while (!input.equalsIgnoreCase("q")){		//while the user does not input q, loop the method calls.
+				reflector.callMethod(input);
+				reflector.getFieldsMethods();
+				System.out.print("Methods to call (q to quit): ");
+				input = scan.next();
+			}
+
+		} catch (ClassNotFoundException | NoSuchMethodException | InstantiationException e) {
+			System.err.println("Invalid Class");							//catching invalid class exeption
+		} catch (IllegalAccessException | InvocationTargetException e) {
+			System.err.println("Invalid Method");							//catching invalid method exeption
+		}
 	}
 }
